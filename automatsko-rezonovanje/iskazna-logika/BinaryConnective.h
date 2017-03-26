@@ -3,10 +3,13 @@
 
 #include "Formula.h"
 
-class BinaryConnective : public Formula
+class BinaryConnective : public BaseFormula
 {
 	public:
 	BinaryConnective(const Formula&, const Formula&);
+	int complexity() const;
+	bool equalsTo(const Formula&) const;
+	void getAtoms(AtomSet&) const;
 	protected:
 	Formula _op1;
 	Formula _op2;
