@@ -3,6 +3,8 @@
 #include "Atom.h"
 #include "And.h"
 #include "Or.h"
+#include "Iff.h"
+#include "Imp.h"
 
 using namespace std;
 
@@ -15,10 +17,12 @@ int main()
 	Formula e = make_shared<And>(c, d);
 	Formula f = make_shared<Atom>(3);
 	Formula g = make_shared<Or>(e, f);
+	Formula h = make_shared<Iff>(g, f);
+	Formula i = make_shared<Imp>(h, f);
 
 	Valuation v;
-	cout << g << endl;
-	if(g->issat(v))
+	cout << i << endl;
+	if(i->issat(v))
 		cout << "Formula je zadovoljiva u valuaciji " << v << endl;
 	return 0;
 }

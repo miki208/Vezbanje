@@ -2,7 +2,7 @@ CC = g++
 FLAGS = -std=c++14
 PROG = iskazna_logika
 
-$(PROG) : main.o Valuation.o Formula.o AtomicFormula.o LogicConstant.o True.o False.o Atom.o BinaryConnective.o And.o Or.o
+$(PROG) : main.o Valuation.o Formula.o AtomicFormula.o LogicConstant.o True.o False.o Atom.o BinaryConnective.o And.o Or.o Iff.o Imp.o
 	$(CC) $(FLAGS) -o $@ $^
 
 main.o : main.cpp
@@ -36,6 +36,12 @@ And.o : And.cpp Formula.h BinaryConnective.h And.h
 	$(CC) $(FLAGS) -c -o $@ $<
 
 Or.o : Or.cpp Formula.h BinaryConnective.h Or.h
+	$(CC) $(FLAGS) -c -o $@ $<
+
+Iff.o : Iff.cpp Formula.h BinaryConnective.h Iff.h
+	$(CC) $(FLAGS) -c -o $@ $<
+
+Imp.o : Imp.cpp Formula.h BinaryConnective.h Imp.h
 	$(CC) $(FLAGS) -c -o $@ $<
 
 .PHONY: clean
