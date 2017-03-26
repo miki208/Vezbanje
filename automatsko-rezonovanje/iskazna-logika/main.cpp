@@ -15,6 +15,6 @@ int main()
 	a->getAtoms(atoms);
 	Valuation v;
 	v.init(atoms);
-	cout << a->eval(v) << endl;
+	cout << a->issat() << endl;
 	return 0;
 }

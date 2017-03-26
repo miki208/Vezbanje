@@ -23,6 +23,7 @@ class BaseFormula : public std::enable_shared_from_this<BaseFormula>
 	virtual void getAtoms(AtomSet&) const = 0;
 	virtual Formula substitute(const Formula&, const Formula&) = 0;
 	virtual bool eval(const Valuation&) const = 0;
+	bool issat() const;
 };
 
 std::ostream& operator << (std::ostream&, const Formula&);
