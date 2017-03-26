@@ -8,11 +8,10 @@ ostream& operator << (ostream &ostr, const Formula &f)
 	return ostr;
 }
 
-bool BaseFormula::issat() const
+bool BaseFormula::issat(Valuation &v) const
 {
 	AtomSet atoms;
 	this->getAtoms(atoms);
-	Valuation v;
 	v.init(atoms);
 
 	do {
