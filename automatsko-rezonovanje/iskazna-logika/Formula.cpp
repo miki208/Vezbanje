@@ -49,3 +49,18 @@ void BaseFormula::printTruthTable() const
 		cout << v << " | " << this->eval(v) << endl;
 	} while(v.next());
 }
+
+bool BaseFormula::isConsequence(const Formula &f) const
+{
+	AtomSet atoms;
+	this->getAtoms(atoms);
+	Valuation v;
+	v.init(atoms);
+
+	do {
+		if(f->eval(v) && !this->eval(v))
+			return false;
+	} while(v.next());
+
+	return true;
+}

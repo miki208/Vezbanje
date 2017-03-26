@@ -26,6 +26,7 @@ class BaseFormula : public std::enable_shared_from_this<BaseFormula>
 	bool issat() const;
 	bool isTautology() const;
 	void printTruthTable() const;
+	bool isConsequence(const Formula&) const;
 };
 
 std::ostream& operator << (std::ostream&, const Formula&);
