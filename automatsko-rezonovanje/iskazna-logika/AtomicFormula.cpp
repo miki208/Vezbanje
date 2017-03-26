@@ -2,12 +2,16 @@
 
 using namespace std;
 
-int AtomicFormula::complexity()
+int AtomicFormula::complexity() const
 {
 	return 0;
 }
 
-bool AtomicFormula::equalsTo(Formula &f)
+Formula AtomicFormula::substitute(const Formula &a, const Formula &b)
 {
-	return f->getType() == this->getType();
+	if(this->equalsTo(a))
+		return b;
+	else
+		return shared_from_this();
 }
+

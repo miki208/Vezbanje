@@ -5,7 +5,9 @@
 
 class LogicConstant : public AtomicFormula
 {
-	public: 
+	public:
+	bool equalsTo(const Formula&) const;
+	void getAtoms(AtomSet&) const;
 };
 
 #endif

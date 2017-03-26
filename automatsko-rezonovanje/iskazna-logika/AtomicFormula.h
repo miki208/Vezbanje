@@ -6,8 +6,8 @@
 class AtomicFormula : public BaseFormula
 {
 	public:
-	int complexity();
-	bool equalsTo(Formula&);
+	int complexity() const;
+	Formula substitute(const Formula&, const Formula&);	
 };
 
 #endif

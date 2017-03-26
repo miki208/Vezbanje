@@ -6,8 +6,9 @@
 class True : public LogicConstant
 {
 	public:
-	Type getType();
-	void print(std::ostream&);
+	Type getType() const;
+	void print(std::ostream&) const;
+	bool eval(const Valuation&) const;
 };
 
 #endif

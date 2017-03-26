@@ -10,5 +10,11 @@ int main()
 		if(a->equalsTo(b)) {
 		cout << "A i B su jednake formule." << endl;
 	}
+
+	AtomSet atoms;
+	a->getAtoms(atoms);
+	Valuation v;
+	v.init(atoms);
+	cout << a->eval(v) << endl;
 	return 0;
 }
