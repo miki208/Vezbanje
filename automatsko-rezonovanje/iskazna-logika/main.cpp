@@ -15,6 +15,6 @@ int main()
 	a->getAtoms(atoms);
 	Valuation v;
 	v.init(atoms);
-	cout << a->issat() << endl;
+	cout << a->isTautology() << endl;
 	return 0;
 }

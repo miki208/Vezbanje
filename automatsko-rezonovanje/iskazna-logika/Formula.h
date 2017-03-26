@@ -24,6 +24,7 @@ class BaseFormula : public std::enable_shared_from_this<BaseFormula>
 	virtual Formula substitute(const Formula&, const Formula&) = 0;
 	virtual bool eval(const Valuation&) const = 0;
 	bool issat() const;
+	bool isTautology() const;
 };
 
 std::ostream& operator << (std::ostream&, const Formula&);

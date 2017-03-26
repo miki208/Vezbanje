@@ -22,3 +22,18 @@ bool BaseFormula::issat() const
 
 	return false;
 }
+
+bool BaseFormula::isTautology() const
+{
+	AtomSet atoms;
+	this->getAtoms(atoms);
+	Valuation v;
+	v.init(atoms);
+
+	do {
+		if(!this->eval(v))
+			return false;
+	} while(v.next());
+
+	return true;
+}
