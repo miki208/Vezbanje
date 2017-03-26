@@ -37,3 +37,15 @@ bool BaseFormula::isTautology() const
 
 	return true;
 }
+
+void BaseFormula::printTruthTable() const
+{
+	AtomSet atoms;
+	this->getAtoms(atoms);
+	Valuation v;
+	v.init(atoms);
+
+	do {
+		cout << v << " | " << this->eval(v) << endl;
+	} while(v.next());
+}
