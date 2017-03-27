@@ -10,6 +10,8 @@ class BinaryConnective : public BaseFormula
 	int complexity() const;
 	bool equalsTo(const Formula&) const;
 	void getAtoms(AtomSet&) const;
+	const Formula& getOp1() const;
+	const Formula& getOp2() const;
 	protected:
 	Formula _op1;
 	Formula _op2;

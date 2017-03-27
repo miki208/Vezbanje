@@ -19,3 +19,8 @@ Formula AtomicFormula::simplify()
 {
 	return shared_from_this();
 }
+
+Formula AtomicFormula::nnf()
+{
+	return shared_from_this();
+}

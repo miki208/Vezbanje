@@ -12,6 +12,7 @@ class Or : public BinaryConnective
 	Formula substitute(const Formula&, const Formula&);
 	bool eval(const Valuation&) const;
 	Formula simplify();
+	Formula nnf();
 };
 
 #endif

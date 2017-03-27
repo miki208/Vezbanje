@@ -2,6 +2,7 @@
 #include "True.h"
 #include "False.h"
 #include "Not.h"
+#include "Or.h"
 
 using namespace std;
 
@@ -41,4 +42,9 @@ Formula Imp::simplify()
 		return make_shared<Not>(simpl1);
 	else
 		return make_shared<Imp>(simpl1, simpl2);
+}
+
+Formula Imp::nnf()
+{
+	return make_shared<Or>(make_shared<Not>(_op1)->nnf(), _op2->nnf());
 }

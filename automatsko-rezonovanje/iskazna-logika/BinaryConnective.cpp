@@ -18,3 +18,13 @@ void BinaryConnective::getAtoms(AtomSet &atoms) const
 	this->_op1->getAtoms(atoms);
 	this->_op2->getAtoms(atoms);
 }
+
+const Formula& BinaryConnective::getOp1() const
+{
+	return _op1;
+}
+
+const Formula& BinaryConnective::getOp2() const
+{
+	return _op2;
+}

@@ -2,6 +2,8 @@
 #include "True.h"
 #include "False.h"
 #include "Not.h"
+#include "And.h"
+#include "Or.h"
 
 using namespace std;
 
@@ -47,4 +49,10 @@ Formula Iff::simplify()
 		return make_shared<Not>(simpl1);
 	else
 		return make_shared<Iff>(simpl1, simpl2);
+}
+
+Formula Iff::nnf()
+{
+	return make_shared<Or>(make_shared<And>(make_shared<Not>(_op1)->nnf(), make_shared<Not>(_op2)->nnf()),
+			make_shared<And>(_op1->nnf(), _op2->nnf()));
 }

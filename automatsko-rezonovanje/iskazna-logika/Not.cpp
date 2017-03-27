@@ -1,6 +1,10 @@
 #include "Not.h"
 #include "False.h"
 #include "True.h"
+#include "And.h"
+#include "Or.h"
+#include "Imp.h"
+#include "Iff.h"
 
 using namespace std;
 
@@ -37,4 +41,26 @@ Formula Not::simplify()
 		return make_shared<True>();
 	else
 		return make_shared<Not>(simpl);
+}
+
+Formula Not::nnf()
+{
+	if(this->_op->getType() == T_NOT) {
+		return ((Not*) _op.get())->_op->nnf();
+	} else if(this->_op->getType() == T_AND) {
+		And *tmp = (And*) _op.get();
+		return make_shared<Or>(make_shared<Not>(tmp->getOp1())->nnf(), make_shared<Not>(tmp->getOp2())->nnf());
+	} else if(this->_op->getType() == T_OR) {
+		Or *tmp = (Or*) _op.get();
+		return make_shared<And>(make_shared<Not>(tmp->getOp1())->nnf(), make_shared<Not>(tmp->getOp2())->nnf());
+	} else if(this->_op->getType() == T_IFF) {
+		Iff *tmp = (Iff*) _op.get();
+		return make_shared<And>(make_shared<Or>(make_shared<Not>(tmp->getOp1())->nnf(), make_shared<Not>(tmp->getOp2())->nnf()),
+				make_shared<Or>(tmp->getOp1()->nnf(), tmp->getOp2()->nnf()));
+	} else if(this->_op->getType() == T_IMP) {
+		Imp *tmp = (Imp*) _op.get();
+		return make_shared<And>(tmp->getOp1()->nnf(), make_shared<Not>(tmp->getOp2())->nnf());
+	} else {
+		return shared_from_this();
+	}
 }

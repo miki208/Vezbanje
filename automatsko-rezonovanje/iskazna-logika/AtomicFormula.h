@@ -9,6 +9,7 @@ class AtomicFormula : public BaseFormula
 	int complexity() const;
 	Formula substitute(const Formula&, const Formula&);	
 	Formula simplify();
+	Formula nnf();
 };
 
 #endif

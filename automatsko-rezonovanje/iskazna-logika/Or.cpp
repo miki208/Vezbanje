@@ -43,3 +43,8 @@ Formula Or::simplify()
 	else
 		return make_shared<Or>(simpl1, simpl2);
 }
+
+Formula Or::nnf()
+{
+	return make_shared<Or>(_op1->nnf(), _op2->nnf());
+}

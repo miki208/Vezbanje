@@ -29,6 +29,7 @@ class BaseFormula : public std::enable_shared_from_this<BaseFormula>
 	bool isConsequence(const Formula&) const;
 	bool isEquivalent(const Formula&) const;
 	virtual Formula simplify() = 0;
+	virtual Formula nnf() = 0;
 };
 
 std::ostream& operator << (std::ostream&, const Formula&);

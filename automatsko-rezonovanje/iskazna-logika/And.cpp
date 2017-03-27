@@ -41,3 +41,8 @@ Formula And::simplify()
 	else
 		return make_shared<And>(simpl1, simpl2);
 }
+
+Formula And::nnf()
+{
+	return make_shared<And>(_op1->nnf(), _op2->nnf());
+}

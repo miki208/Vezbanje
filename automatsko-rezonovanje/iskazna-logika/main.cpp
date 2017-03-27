@@ -29,7 +29,8 @@ int main()
 	if(iff1->issat(v))
 		cout << "Formula je zadovoljiva u valuaciji " << v << endl;
 
-	Formula simplified = iff1->simplify();
-	cout << "Simplified version: " << simplified << endl;
+	Formula nnf = iff1->simplify()->nnf();
+	cout << "NNF version: " << nnf << endl;
+	cout << "nnf =? iff1 : " << nnf->isEquivalent(iff1);
 	return 0;
 }
