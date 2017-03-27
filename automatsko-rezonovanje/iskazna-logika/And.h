@@ -11,6 +11,7 @@ class And : public BinaryConnective
 	Type getType() const;
 	Formula substitute(const Formula&, const Formula&);
 	bool eval(const Valuation&) const;
+	Formula simplify();
 };
 
 #endif

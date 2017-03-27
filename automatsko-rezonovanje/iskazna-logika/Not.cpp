@@ -1,4 +1,6 @@
 #include "Not.h"
+#include "False.h"
+#include "True.h"
 
 using namespace std;
 
@@ -25,3 +27,14 @@ bool Not::eval(const Valuation &v) const
 	return !this->_op->eval(v);
 }
 
+Formula Not::simplify()
+{
+	Formula simpl = this->_op->simplify();
+
+	if(simpl->getType() == T_TRUE)
+		return make_shared<False>();
+	else if(simpl->getType() == T_FALSE)
+		return make_shared<True>();
+	else
+		return make_shared<Not>(simpl);
+}

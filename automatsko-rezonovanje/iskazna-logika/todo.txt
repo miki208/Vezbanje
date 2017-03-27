@@ -1,23 +1,28 @@
 Implementirati hijerarhiju klasa
-	-Omoguciti atome, AND, OR, NOT, IFF, IMP, konstante
-	-Ispis formula
-	-Vracanje tipa
-	-Kompleksnost (broj operatora)
-	-Provera jednakosti (sintaksna)
-	-Vracanje atoma
-	-Supstitucija
-	-Evaluacija
-	-Zadovoljivost
-	-Tautologija
-	-Istinitosna tablica
-	-Da li je logicka posledica druge
-	-Da li je ekvivalentna sa drugom
-Ispis formule u stream
+	+Omoguciti atome, AND, OR, NOT, IFF, IMP, konstante
+	+Ispis formula
+	+Vracanje tipa
+	+Kompleksnost (broj operatora)
+	+Provera jednakosti (sintaksna)
+	+Vracanje atoma
+	+Supstitucija
+	+Evaluacija
+	+Zadovoljivost
+	+Tautologija
+	+Istinitosna tablica
+	+Da li je logicka posledica druge
+	+Da li je ekvivalentna sa drugom
+	-Simplifikacija
+	-NNF
+	-CNF
+	-DNF
+
++Ispis formule u stream
 Implementirati apstrakciju valuacije
-	-Vracanje vrednosti za odredjeni atom
-	-Postavljanje vrednosti odredjene promenljive
-	-Inicijalizacija valuacije
-	-Generisanje sledece valuacije
-	-Ispis valuacije
--Ispis valuacije u stream
+	+Vracanje vrednosti za odredjeni atom
+	+Postavljanje vrednosti odredjene promenljive
+	+Inicijalizacija valuacije
+	+Generisanje sledece valuacije
+	+Ispis valuacije
++Ispis valuacije u stream
 

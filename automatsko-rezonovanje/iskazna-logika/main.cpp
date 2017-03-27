@@ -28,5 +28,8 @@ int main()
 	cout << iff1 << endl;
 	if(iff1->issat(v))
 		cout << "Formula je zadovoljiva u valuaciji " << v << endl;
+
+	Formula simplified = iff1->simplify();
+	cout << "Simplified version: " << simplified << endl;
 	return 0;
 }

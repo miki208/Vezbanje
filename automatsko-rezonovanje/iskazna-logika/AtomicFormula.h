@@ -8,6 +8,7 @@ class AtomicFormula : public BaseFormula
 	public:
 	int complexity() const;
 	Formula substitute(const Formula&, const Formula&);	
+	Formula simplify();
 };
 
 #endif

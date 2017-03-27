@@ -15,3 +15,7 @@ Formula AtomicFormula::substitute(const Formula &a, const Formula &b)
 		return shared_from_this();
 }
 
+Formula AtomicFormula::simplify()
+{
+	return shared_from_this();
+}
