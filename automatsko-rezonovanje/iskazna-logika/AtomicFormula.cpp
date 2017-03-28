@@ -9,7 +9,7 @@ int AtomicFormula::complexity() const
 
 Formula AtomicFormula::substitute(const Formula &a, const Formula &b)
 {
-	if(this->equalsTo(a))
+	if(equalsTo(a))
 		return b;
 	else
 		return shared_from_this();

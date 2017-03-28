@@ -16,15 +16,15 @@ Type Atom::getType() const
 
 bool Atom::equalsTo(const Formula &f) const
 {
-	return (this->getType() == f->getType()) && (this->id == ((Atom*) f.get())->id);
+	return (getType() == f->getType()) && (id == ((Atom*) f.get())->id);
 }
 
 void Atom::getAtoms(AtomSet &atoms) const
 {
-	atoms.insert(this->id);
+	atoms.insert(id);
 }
 
 bool Atom::eval(const Valuation &v) const
 {
-	return v.getValue(this->id);
+	return v.getValue(id);
 }

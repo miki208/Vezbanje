@@ -11,11 +11,11 @@ ostream& operator << (ostream &ostr, const Formula &f)
 bool BaseFormula::issat(Valuation &v) const
 {
 	AtomSet atoms;
-	this->getAtoms(atoms);
+	getAtoms(atoms);
 	v.init(atoms);
 
 	do {
-		if(this->eval(v))
+		if(eval(v))
 			return true;
 	} while(v.next());
 
@@ -25,12 +25,12 @@ bool BaseFormula::issat(Valuation &v) const
 bool BaseFormula::isTautology() const
 {
 	AtomSet atoms;
-	this->getAtoms(atoms);
+	getAtoms(atoms);
 	Valuation v;
 	v.init(atoms);
 
 	do {
-		if(!this->eval(v))
+		if(!eval(v))
 			return false;
 	} while(v.next());
 
@@ -40,12 +40,12 @@ bool BaseFormula::isTautology() const
 void BaseFormula::printTruthTable() const
 {
 	AtomSet atoms;
-	this->getAtoms(atoms);
+	getAtoms(atoms);
 	Valuation v;
 	v.init(atoms);
 
 	do {
-		cout << v << " | " << this->eval(v) << endl;
+		cout << v << " | " << eval(v) << endl;
 	} while(v.next());
 }
 
@@ -53,12 +53,12 @@ bool BaseFormula::isConsequence(const Formula &f) const
 {
 	AtomSet atoms;
 	f->getAtoms(atoms);
-	this->getAtoms(atoms);
+	getAtoms(atoms);
 	Valuation v;
 	v.init(atoms);
 
 	do {
-		if(f->eval(v) && !this->eval(v))
+		if(f->eval(v) && !eval(v))
 			return false;
 	} while(v.next());
 
@@ -69,12 +69,12 @@ bool BaseFormula::isEquivalent(const Formula &f) const
 {
 	AtomSet atoms;
 	f->getAtoms(atoms);
-	this->getAtoms(atoms);
+	getAtoms(atoms);
 	Valuation v;
 	v.init(atoms);
 
 	do {
-		if(f->eval(v) != this->eval(v))
+		if(f->eval(v) != eval(v))
 			return false;
 	} while(v.next());
 

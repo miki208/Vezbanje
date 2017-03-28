@@ -1,12 +1,11 @@
 #include "And.h"
-#include "True.h"
 #include "False.h"
 
 using namespace std;
 
 void And::print(ostream &ostr) const
 {
-	cout << "(" << this->_op1 << " /\\ " << this->_op2 << ")";
+	cout << "(" << _op1 << " /\\ " << _op2 << ")";
 }
 
 Type And::getType() const
@@ -16,7 +15,7 @@ Type And::getType() const
 
 Formula And::substitute(const Formula &f1, const Formula &f2)
 {
-	if(this->equalsTo(f1))
+	if(equalsTo(f1))
 		return f2;
 	else
 		return make_shared<And>(_op1->substitute(f1, f2), _op2->substitute(f1, f2));
@@ -29,8 +28,8 @@ bool And::eval(const Valuation &v) const
 
 Formula And::simplify()
 {
-	Formula simpl1 = this->_op1->simplify();
-	Formula simpl2 = this->_op2->simplify();
+	Formula simpl1 = _op1->simplify();
+	Formula simpl2 = _op2->simplify();
 
 	if(simpl1->getType() == T_TRUE)
 		return simpl2;

@@ -2,7 +2,7 @@
 
 bool LogicConstant::equalsTo(const Formula &f) const
 {
-	return f->getType() == this->getType();
+	return f->getType() == getType();
 }
 
 void LogicConstant::getAtoms(AtomSet &atoms) const

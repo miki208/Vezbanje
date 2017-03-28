@@ -10,6 +10,7 @@ class UnaryConnective : public BaseFormula
 	int complexity() const;
 	bool equalsTo(const Formula&) const;
 	void getAtoms(AtomSet&) const;
+	const Formula& getOp() const;
 	protected:
 	Formula _op;
 };

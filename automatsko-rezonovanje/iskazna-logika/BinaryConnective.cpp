@@ -9,14 +9,14 @@ int BinaryConnective::complexity() const
 
 bool BinaryConnective::equalsTo(const Formula &f) const
 {
-	return this->getType() == f->getType() && ((BinaryConnective*) f.get())->_op1->equalsTo(this->_op1)
-						&& ((BinaryConnective*) f.get())->_op2->equalsTo(this->_op2);
+	return getType() == f->getType() && ((BinaryConnective*) f.get())->_op1->equalsTo(_op1)
+						&& ((BinaryConnective*) f.get())->_op2->equalsTo(_op2);
 }
 
 void BinaryConnective::getAtoms(AtomSet &atoms) const
 {
-	this->_op1->getAtoms(atoms);
-	this->_op2->getAtoms(atoms);
+	_op1->getAtoms(atoms);
+	_op2->getAtoms(atoms);
 }
 
 const Formula& BinaryConnective::getOp1() const
