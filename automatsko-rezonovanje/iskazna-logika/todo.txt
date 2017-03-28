@@ -12,8 +12,8 @@ Implementirati hijerarhiju klasa
 	+Istinitosna tablica
 	+Da li je logicka posledica druge
 	+Da li je ekvivalentna sa drugom
-	-Simplifikacija
-	-NNF
+	+Simplifikacija
+	+NNF
 	-CNF
 	-DNF
 
