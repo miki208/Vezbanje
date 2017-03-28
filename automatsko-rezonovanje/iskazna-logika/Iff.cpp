@@ -55,3 +55,13 @@ Formula Iff::nnf()
 	return make_shared<Or>(make_shared<And>(make_shared<Not>(_op1)->nnf(), make_shared<Not>(_op2)->nnf()),
 			make_shared<And>(_op1->nnf(), _op2->nnf()));
 }
+
+LiteralListList Iff::cnf()
+{
+	throw "Not applicable";
+}
+
+LiteralListList Iff::dnf()
+{
+	throw "Not applicable";
+}

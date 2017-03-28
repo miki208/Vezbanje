@@ -45,3 +45,19 @@ Formula And::nnf()
 {
 	return make_shared<And>(_op1->nnf(), _op2->nnf());
 }
+
+LiteralListList And::cnf()
+{
+	LiteralListList cnf1 = _op1->cnf();
+	LiteralListList cnf2 = _op2->cnf();
+
+	return concatLists(cnf1, cnf2);
+}
+
+LiteralListList And::dnf()
+{
+	LiteralListList dnf1 = _op1->dnf();
+	LiteralListList dnf2 = _op2->dnf();
+
+	return cartesianProduct(dnf1, dnf2);
+}

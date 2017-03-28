@@ -14,8 +14,8 @@ Implementirati hijerarhiju klasa
 	+Da li je ekvivalentna sa drugom
 	+Simplifikacija
 	+NNF
-	-CNF
-	-DNF
+	+CNF
+	+DNF
 
 +Ispis formule u stream
 Implementirati apstrakciju valuacije

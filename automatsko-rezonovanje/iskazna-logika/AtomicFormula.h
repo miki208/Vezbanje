@@ -10,6 +10,8 @@ class AtomicFormula : public BaseFormula
 	Formula substitute(const Formula&, const Formula&);	
 	Formula simplify();
 	Formula nnf();
+	LiteralListList cnf();
+	LiteralListList dnf();
 };
 
 #endif

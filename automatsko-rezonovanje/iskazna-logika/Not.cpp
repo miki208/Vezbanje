@@ -64,3 +64,13 @@ Formula Not::nnf()
 		return shared_from_this();
 	}
 }
+
+LiteralListList Not::cnf()
+{
+	return { { shared_from_this() } };
+}
+
+LiteralListList Not::dnf()
+{
+	return { { shared_from_this() } }; 
+}

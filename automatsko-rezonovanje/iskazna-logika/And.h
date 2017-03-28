@@ -13,6 +13,8 @@ class And : public BinaryConnective
 	bool eval(const Valuation&) const;
 	Formula simplify();
 	Formula nnf();
+	LiteralListList cnf();
+	LiteralListList dnf();
 };
 
 #endif

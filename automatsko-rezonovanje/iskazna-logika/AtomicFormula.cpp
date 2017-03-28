@@ -24,3 +24,23 @@ Formula AtomicFormula::nnf()
 {
 	return shared_from_this();
 }
+
+LiteralListList AtomicFormula::cnf()
+{
+	if(getType() == T_ATOM)
+		return { { shared_from_this() } };
+	else if(getType() == T_TRUE)
+		return { };
+	else
+		return { { } };
+}
+
+LiteralListList AtomicFormula::dnf()
+{
+	if(getType() == T_ATOM)
+		return { { shared_from_this() } };
+	else if(getType() == T_TRUE)
+		return { { } };
+	else
+		return { };
+}

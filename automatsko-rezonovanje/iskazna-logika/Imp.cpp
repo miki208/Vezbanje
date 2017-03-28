@@ -47,3 +47,13 @@ Formula Imp::nnf()
 {
 	return make_shared<Or>(make_shared<Not>(_op1)->nnf(), _op2->nnf());
 }
+
+LiteralListList Imp::cnf()
+{
+	throw "Not applicable";
+}
+
+LiteralListList Imp::dnf()
+{
+	throw "Not applicable";
+}

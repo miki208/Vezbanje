@@ -31,6 +31,7 @@ int main()
 
 	Formula nnf = iff1->simplify()->nnf();
 	cout << "NNF version: " << nnf << endl;
-	cout << "nnf =? iff1 : " << nnf->isEquivalent(iff1);
+	cout << "nnf =? iff1 : " << nnf->isEquivalent(iff1) << endl;
+	cout << "KNF: " << nnf->cnf() << endl;
 	return 0;
 }

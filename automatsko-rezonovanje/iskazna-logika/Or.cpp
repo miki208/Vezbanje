@@ -47,3 +47,19 @@ Formula Or::nnf()
 {
 	return make_shared<Or>(_op1->nnf(), _op2->nnf());
 }
+
+LiteralListList Or::cnf()
+{
+	LiteralListList cnf1 = _op1->cnf();
+	LiteralListList cnf2 = _op2->cnf();
+
+	return cartesianProduct(cnf1, cnf2);
+}
+
+LiteralListList Or::dnf()
+{
+	LiteralListList dnf1 = _op1->dnf();
+	LiteralListList dnf2 = _op2->dnf();
+
+	return concatLists(dnf1, dnf2);
+}
