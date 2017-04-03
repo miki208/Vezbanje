@@ -19,6 +19,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -46,30 +47,23 @@ ostream& operator << (ostream &ostr, Formula f)
 bool resolve(const Clause &a, const Clause &b, Clause &res)
 {
 	res.clear();
-	bool find = false;
 	for(auto &i : a) {
 		if(b.find(-i) != b.end()) {
-			if(find == false) {
-				find = true;
-				for(auto &j : a) {
-					if(j != i)
-						res.insert(j);
-				}
-
-				for(auto &j : b) {
-					if(j != -i)
-						res.insert(j);
-				}
-			} else {
-				res.erase(i);
-				res.erase(-i);
+			for(auto &j : a) {
+				if(j != i)
+					res.insert(j);
 			}
+			for(auto &j : b) {
+				if(j != -i)
+					res.insert(j);
+			}
+			return true;
 		}
 	}
-	return find;
+	return false;
 }
 
-bool resolution(Formula f)//vraca true ako je izvedena prazna klauza
+bool resolution(Formula f)//vraca true ako je izvedena kontradikcija
 {
 	Clause tmp;
 	for(int i = 1; i < f.size(); i++) {
@@ -77,7 +71,8 @@ bool resolution(Formula f)//vraca true ako je izvedena prazna klauza
 			if(resolve(f[i], f[j], tmp)) {
 				if(tmp.empty())
 					return true;
-				f.push_back(tmp);
+				if(find(f.begin(), f.end(), tmp) == f.end())
+					f.push_back(tmp);
 			}
 		}
 	}
@@ -86,7 +81,7 @@ bool resolution(Formula f)//vraca true ako je izvedena prazna klauza
 
 int main()
 {
-	Formula f = { {1, 2, 3}, {-1, -2}, {-2, -3}, {-1, -3} };
+	Formula f = {{1, 2}, {2, -2}, {-1, 2, -2}};
 	Clause res;
 	cout << f << endl;
 	
