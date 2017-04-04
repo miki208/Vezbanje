@@ -71,7 +71,7 @@ bool resolution(Formula f)//vraca true ako je izvedena kontradikcija
 			if(resolve(f[i], f[j], tmp)) {
 				if(tmp.empty())
 					return true;
-				if(find(f.begin(), f.end(), tmp) == f.end())
+				if(find(f.begin(), f.end(), tmp) == f.end())//moramo da proverimo da li je vec izvedena ova rezolventa
 					f.push_back(tmp);
 			}
 		}
@@ -81,13 +81,18 @@ bool resolution(Formula f)//vraca true ako je izvedena kontradikcija
 
 int main()
 {
-	Formula f = {{1, 2}, {2, -2}, {-1, 2, -2}};
+	Formula f = {{-1, -2, 3}, {-1, 2}, {1}, {-3}};
 	Clause res;
-	cout << f << endl;
+
+	cout << "Test formula: " << f << endl;
 	
 	if(resolve(f[0], f[1], res))
-		cout << res << endl;
+		cout << "Iz prve i druge klauze je izvedena rezolventa " << res << endl;
 
-	cout << resolution(f) << endl;
+
+	if(resolution(f))
+		cout << "Izvedena je prazna klauza, formula f je nezadovoljiva" << endl;
+	else
+		cout << "Nije izvedena prazna klauza, formula f je zadovoljiva" << endl;
 	return 0;
 }
