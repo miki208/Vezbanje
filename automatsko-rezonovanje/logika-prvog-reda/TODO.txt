@@ -1,0 +1,53 @@
++ Implementirati klasu Signature
+	+ Dodavanje funkcijskog simbola
+	+ Dodavanje predikatskog simbola
+	+ Provera funkcijskog simbola
+	+ Provera predikatskog simbola
+
++ Implementirati termove (promenljiva, funkcija)
+	+ Provera tipa
+	+ Ispis terma
+	+ Sintaksna jednakost
+	+ Vracanje svih promenljivih
+	+ Provera da li sadrzi odredjenu promenljivu
+	+ Evaluacija
+	+ Supstitucija promenljive sa termom
+
++ Funkcijski termovi
+	+ Vracanje operanada
+	+ Vracanje signature
+	+ Vracanje funkcijskog simbola
+
++ Implementirati formule
+	+ Ispis formule
+	+ Tip formule
+	+ Kompleksnost
+	+ Sintaksna jednakost
+	+ Vracanje svih (slobodnih) promenljivih
+	+ Provera da li sadrzi odredjenu vezanu ili slobodnu promenljivu
+	+ Evaluacija
+	+ Supstitucija promenljive sa termom
+	
++ Apstrakcija interpretacije funkcije
+	+ Arnost
+	+ Evaluacija
+
++ Apstrakcija interpretacije relacije
+	+ Arnost
+	+ Evaluacija
+
++ Struktura (model)
+	+ Vracanje signature
+	+ Vracanje domena
+	+ Dodavanje interpretacije funkcije
+	+ Vracanje funkcije
+	+ Dodavanje interpretacije relacije
+	+ Vracanje relacije
+
++ Apstrakcija valuacije
+	+ Vracanje domena
+	+ Postavljanje vrednosti
+	+ Vracanje vrednosti
+
++ Dodatni zahtevi
+	+ Vracanje jedinstvene promenljive koja nije sadrzana ni u formuli, ni u termu
